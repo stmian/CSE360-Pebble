@@ -26,7 +26,8 @@ static int current_icon2 = 0;
 static int status1 = 0;
 static int status2 = 0;
 static int eventNumber = 0;
-
+static bool trackWorkout = false;
+static bool trackSleep = true;
 
 
 // You can draw arbitrary things in a menu item such as a background
@@ -37,6 +38,8 @@ static GBitmap *menu_background;
 static uint16_t menu_get_num_sections_callback(MenuLayer *menu_layer, void *data) {
   return NUM_MENU_SECTIONS;
 }
+
+
 
 // Each section has a number of items;  we use a callback to specify this
 // You can also dynamically add and remove items using this
@@ -95,10 +98,11 @@ static void menu_draw_row_callback(GContext* ctx, const Layer *cell_layer, MenuI
         
         case 2:
           // This is a basic menu icon with a cycling icon
-          menu_cell_basic_draw(ctx, cell_layer, "Export Data", "Select to Export", NULL);
+          menu_cell_basic_draw(ctx, cell_layer, "Export Data", "Last Export: 4/19/2014", NULL);
           break;
         
        
+
         
       //  case 2:
           // Here we use the graphics context to draw something different
@@ -134,7 +138,7 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
         eventNumber = 1;
         //Code to start tracking workout
         
-       time_t time	(	time_t * tloc);	
+       //time_t time	(	time_t * tloc);	
         
       }
     
@@ -144,6 +148,14 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
         //Code to stop tracking workout
       }
       
+  /*  while(trackWorkout != false)
+     {
+      
+      
+      
+     }
+   */ 
+    
       
       // After changing the icon, mark the layer to have it updated
       layer_mark_dirty(menu_layer_get_layer(menu_layer));
@@ -173,6 +185,32 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
       layer_mark_dirty(menu_layer_get_layer(menu_layer));
       break;  
     
+    //Export Button
+    case 3:
+      // Cycle the status messages
+      current_icon2 = (current_icon2 + 1) % NUM_MENU_ICONS;
+      status2 = (status2 + 1) % NUM_STATUS_TYPES;  
+     
+         
+      if(current_icon2 % 2 == 1) 
+      {
+        eventNumber = 2;
+        //Code to start tracking Sleep
+        
+        
+      }
+    
+      if(current_icon2 % 2 == 0)
+      {
+        eventNumber = 0;
+        //Code to stop tracking sleep
+      }
+          
+      // After changing the icon, mark the layer to have it updated
+      layer_mark_dirty(menu_layer_get_layer(menu_layer));
+      break;    
+  
+    
   }
 
 }
@@ -186,10 +224,10 @@ void window_load(Window *window) {
   int statusArray = 0;
   int eventArray = 0;
   
-  menu_icons1[num_menu1_icons++] = gbitmap_create_with_resource(RESOURCE_ID_blankImage);//RESOURCE_ID_IMAGE_MENU_ICON_BIG_WATCH);
+  menu_icons1[num_menu1_icons++] = NULL;//gbitmap_create_with_resource(RESOURCE_ID_blankImage);//RESOURCE_ID_IMAGE_MENU_ICON_BIG_WATCH);
   menu_icons1[num_menu1_icons++] = gbitmap_create_with_resource(RESOURCE_ID_Logo);//RESOURCE_ID_IMAGE_MENU_ICON_SECTOR_WATCH);
-  menu_icons2[num_menu2_icons++] = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_MENU_ICON_BINARY_WATCH);
-  menu_icons2[num_menu2_icons++] = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_MENU_ICON_SECTOR_WATCH);
+  menu_icons2[num_menu2_icons++] = NULL;//gbitmap_create_with_resource(RESOURCE_ID_blankImage);
+  menu_icons2[num_menu2_icons++] = gbitmap_create_with_resource(RESOURCE_ID_Logo);
   
   status[statusArray++] = "Press to Start";
   status[statusArray++] = "Press to Stop";

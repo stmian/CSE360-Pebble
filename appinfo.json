@@ -1,50 +1,50 @@
 {
-    "versionLabel": "1.5",
-    "uuid": "2550352b-2523-44f2-8473-eeb81eb9c8d1",
-    "appKeys": {},
     "longName": "BeHealthy CSE360 App",
-    "versionCode": 2,
-    "capabilities": [
-        ""
-    ],
-    "shortName": "BeHealthy",
-    "companyName": "Team 1",
     "watchapp": {
         "watchface": false
     },
+    "companyName": "Team 1",
+    "shortName": "BeHealthy",
+    "capabilities": [
+        ""
+    ],
+    "uuid": "2550352b-2523-44f2-8473-eeb81eb9c8d1",
     "resources": {
         "media": [
             {
-                "type": "png",
-                "name": "blankImage",
-                "file": "images/Check_Mark.png"
-            },
-            {
-                "menuIcon": true,
-                "type": "png",
-                "name": "Logo",
-                "file": "images/Untitled.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_MENU_ICON_BIG_WATCH",
-                "file": "images/menu_icon_big_watch.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_MENU_ICON_SECTOR_WATCH",
-                "file": "images/menu_icon_sector_watch.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_MENU_ICON_BINARY_WATCH",
-                "file": "images/menu_icon_binary_watch.png"
-            },
-            {
-                "type": "png",
+                "file": "images/brains_watch_background.png",
                 "name": "IMAGE_BACKGROUND_BRAINS",
-                "file": "images/brains_watch_background.png"
+                "type": "png"
+            },
+            {
+                "file": "images/menu_icon_binary_watch.png",
+                "name": "IMAGE_MENU_ICON_BINARY_WATCH",
+                "type": "png"
+            },
+            {
+                "file": "images/menu_icon_sector_watch.png",
+                "name": "IMAGE_MENU_ICON_SECTOR_WATCH",
+                "type": "png"
+            },
+            {
+                "file": "images/menu_icon_big_watch.png",
+                "name": "IMAGE_MENU_ICON_BIG_WATCH",
+                "type": "png"
+            },
+            {
+                "file": "images/Untitled.png",
+                "menuIcon": true,
+                "name": "Logo",
+                "type": "png"
+            },
+            {
+                "file": "images/Check_Mark.png",
+                "name": "blankImage",
+                "type": "png"
             }
         ]
-    }
+    },
+    "versionLabel": "1.5",
+    "appKeys": {},
+    "versionCode": 2
 }
